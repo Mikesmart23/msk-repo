@@ -1,0 +1,18 @@
+[  {
+        "PhoneNumber": "+213674902327",
+        "Carrier": "Mobilis",
+        "TimeZone": [
+            "Europe/Paris"
+        ],
+        "GeoCoder": "Algeria"
+    },
+
+    {
+        "PhoneNumber": "+21338589624",
+        "Carrier": "",
+        "TimeZone": [
+            "Europe/Paris"
+        ],
+        "GeoCoder": "Algeria"
+    }
+]
