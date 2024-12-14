@@ -2,7 +2,7 @@ import os
 import shutil
 
 
-class Reranger:
+class AutoRanger:
     def __init__(self):
         print("                            Ranging Program By {'PyQonsole': 'Khalil'}")
         print('\n\n>> this program is for automate files to move to directories followed by file extension')
@@ -80,4 +80,4 @@ class Reranger:
             
         print('\nReranged !!')
 
-Reranger().do()
+AutoRanger().do()
