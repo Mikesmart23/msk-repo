@@ -31,11 +31,12 @@ def contacts():
 
     },
 ]
-    print('_'*50)
+    
     print('**  My-Contacts  **')
     print('_'*50)
     for index, profile in enumerate(range(len(contacts))):
         print('- contact n :', index)
+        print('_'*50)
         print('- name :', contacts[profile]['name'])
         print('- phone-number :', contacts[profile]['phone-number'])
         print('- email :', contacts[profile]['email'])
