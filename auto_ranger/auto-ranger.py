@@ -9,7 +9,9 @@ class AutoRanger:
         pass
     def do(self):
         extensions = [
-            '.msi','.exe', '.mp3', '.mp4', '.zip', '.rar', '.png', '.jpg', '.py'
+            '.msi','.exe', '.mp3',
+            '.mp4', '.zip', '.rar',
+            '.png', '.jpg', '.py'
         ]
         input('\n\n>> Press Enter To Start Reranging !! >> ')
         files = os.listdir()
