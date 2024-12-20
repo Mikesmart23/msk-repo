@@ -59,10 +59,6 @@ class Application:
         with open('data\\phone_numbers.json', 'a') as f:
             f.write(details)
             
-   
-   
-     
-              
 class AccountApp:
     def __init__(self) -> None:
         pass
