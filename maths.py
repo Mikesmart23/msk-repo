@@ -1,5 +1,5 @@
 import os
-class MathOperation:
+class MathOperations:
     def __init__(self):
         pass
 
@@ -31,14 +31,12 @@ class MathOperation:
 
     2) substriction Table
 
-
-
     >> ''')
         if select == '1':
-            MathOperation().multipliTable()
+            MathOperations().multipliTable()
         elif select == '2':
-            MathOperation().subTable()
+            MathOperations().subTable()
            
 
 
-MathOperation().load()
+MathOperations().load()
