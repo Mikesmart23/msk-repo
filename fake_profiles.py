@@ -1,7 +1,7 @@
 from faker import Faker
 
-def contacts():
-    contacts = [
+def fakeProfiles():
+    profiles = [
     {
         'name': Faker().name(),
         'phone-number': Faker().phone_number(),
@@ -32,15 +32,15 @@ def contacts():
     },
 ]
     
-    print('**  My-Contacts  **')
+    print('**  Profiles-DataBase  **')
     print('_'*50)
-    for index, profile in enumerate(range(len(contacts))):
-        print('- contact n :', index)
+    for index, profile in enumerate(range(len(profiles))):
+        print('- Profile n :', index)
         print('_'*50)
-        print('- name :', contacts[profile]['name'])
-        print('- phone-number :', contacts[profile]['phone-number'])
-        print('- email :', contacts[profile]['email'])
-        print('- address :', contacts[profile]['address'])
+        print('- name :', profiles[profile]['name'])
+        print('- phone-number :', profiles[profile]['phone-number'])
+        print('- email :', profiles[profile]['email'])
+        print('- address :', profiles[profile]['address'])
         print('_'*50)
 
-contacts()
+fakeProfiles()
