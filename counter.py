@@ -42,6 +42,7 @@ def descending():
         time.sleep(1)
         os.system('cls')
         start -= 1
+    print('💣 BOOOOOOOM')
 
 if __name__ == '__main__':
     count()
