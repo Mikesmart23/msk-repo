@@ -19,6 +19,12 @@ class MathOperation:
         for i in range(0, max_range):
             print('_'*50)
             print(f'- {number} - {i} =', number - i)
+
+    def additionTable(self):
+        pass
+
+    def divisionTable(self):
+        pass
         
 
     def load(self):
