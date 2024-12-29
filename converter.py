@@ -1,25 +1,14 @@
 import os
 from time import sleep
-# 
-class PyConverter:
+
+class ConverterSim:
     def __init__(self):
         pass
-
-    def picture_convert(
-        filePath = 'C:\\Users\\lenovo\\Pictures\\Screenshots',
-        icon = '.ico'):
-
-        os.chdir(filePath)
-        files = os.listdir()
-        for index, file in enumerate(files):
-            extension = file.split()[-1]
-            os.rename(file, f'{index}{icon}')
-            print('done')
 
     def video_convert():
         print('\n        * Wait A Second ... ')
         sleep(1.0)
-        print('\n** [ PyConverter ] Video Converter **')
+        print('\n** [ ConverterSim ] Video Converter **')
         filePath = input('\n- Paste Video Directory Path Bellow > " C:\\Users\\lenovo\\Videos "\n\n- > ')
         os.chdir(filePath)
         
@@ -51,19 +40,25 @@ class PyConverter:
         except:
             pass
             
+    def picture_convert():
+        pass
+
     def convert():
         select = input(
 '''
 =====================================================================================
 
- ___                   ___                                      _                
-(  _`\                (  _`\                                   ( )_              
-| |_) ) _   _  ______ | ( (_)   _     ___   _   _    __   _ __ | ,_)   __   _ __ 
-| ,__/'( ) ( )(______)| |  _  /'_`\ /' _ `\( ) ( ) /'__`\( '__)| |   /'__`\( '__)
-| |    | (_) |        | (_( )( (_) )| ( ) || \_/ |(  ___/| |   | |_ (  ___/| |   
-(_)    `\__, |        (____/'`\___/'(_) (_)`\___/'`\____)(_)   `\__)`\____)(_)   
-       ( )_| |                                                                   
-       `\___/'                                                                   
+
+ _______  _______  _                 _______  _______ _________ _______  _______  _______ _________ _______ 
+(  ____ \(  ___  )( (    /||\     /|(  ____ \(  ____ )\__   __/(  ____ \(  ____ )(  ____ \\__   __/(       )
+| (    \/| (   ) ||  \  ( || )   ( || (    \/| (    )|   ) (   | (    \/| (    )|| (    \/   ) (   | () () |
+| |      | |   | ||   \ | || |   | || (__    | (____)|   | |   | (__    | (____)|| (_____    | |   | || || |
+| |      | |   | || (\ \) |( (   ) )|  __)   |     __)   | |   |  __)   |     __)(_____  )   | |   | |(_)| |
+| |      | |   | || | \   | \ \_/ / | (      | (\ (      | |   | (      | (\ (         ) |   | |   | |   | |
+| (____/\| (___) || )  \  |  \   /  | (____/\| ) \ \__   | |   | (____/\| ) \ \__/\____) |___) (___| )   ( |
+(_______/(_______)|/    )_)   \_/   (_______/|/   \__/   )_(   (_______/|/   \__/\_______)\_______/|/     \|
+                                                                                                            
+                                                          
                 
 =====================================================================================                                                                               
                                 == By PyQonsole ==
@@ -79,15 +74,15 @@ ______________
 
         1) video converter : [ mp4 > mkv | wmv to flv ] ...
 
-        2) picture converter : [ jpg to png | svg to ico ] ...                                                                                                                                                 
+        2) picture converter : [ jpg to png | svg to ico ] ...
+                                                                                                                                                         
         >> ''')
         if select == '1':
-            PyConverter.video_convert()
+            ConverterSim.video_convert()
         elif select == '2':
-            PyConverter.picture_convert()
+            ConverterSim.picture_convert()
         else:
             print('     * Try Again !!!')
-            
 
-
-PyConverter.convert()
+if __name__ == '__main__':
+    ConverterSim.convert()
