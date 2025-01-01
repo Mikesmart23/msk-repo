@@ -41,15 +41,16 @@ class TaskManager:
                 }
             
             try:
+                tasks_box = []
                 cprint('\n- Task Saved !!')
                 os.mkdir('tasks')
                 with open('tasks\\Tasks.json', 'a') as t:
-                    t.write(json.dumps([saved_task], indent=4))
+                    t.write(json.dumps(saved_task, indent=4))
                     t.close()
 
             except FileExistsError:
                 with open('tasks\\Tasks.json', 'a') as t:
-                    json.dump(saved_task, fp=t, indent=4)
+                    t.write(json.dumps(saved_task,indent=4))
                     t.close()
 
         
