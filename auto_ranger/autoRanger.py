@@ -82,4 +82,5 @@ class AutoRanger:
             
         print('\nReranged !!')
 
-AutoRanger().do()
+if __name__ == '__main__':
+    AutoRanger().do()

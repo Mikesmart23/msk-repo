@@ -1,0 +1,4 @@
+
+
+mydict = {'PyQonsole': 'Subsribe !!'}
+
