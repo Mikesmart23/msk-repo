@@ -1,17 +1,87 @@
 import string
 import random
-# facebook : CQ-.6Kg7Yv(<y%O , yahoo : &@)oWk+9#JnO0T[
-def generate() -> str :
-    strs = [string.ascii_letters + string.digits + string.punctuation]
-    sampled = random.sample(strs[0], k=15)
-    note = input('- Generate Password Is For : ').capitalize()
-    print(f'- {note} Password : ' , end='')
-    for password in sampled:
-        print(*password, end='')
+
+# facebook : wRaXe.7/qzWpikT , yahoo : &@)oWk+9#JnO0T[
+
+class PasswordsGenerator:
+    def __init__(self):
+        pass
+    def generate(self):
+        select = input(
+''' 
+=====================================================================================================
+
+╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗
+╠╬╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╬╣
+╠╣ ______   ______     ______     ______     __     __     ______     ______     _____     ______   ╠╣
+╠╣/\  == \ /\  __ \   /\  ___\   /\  ___\   /\ \  _ \ \   /\  __ \   /\  == \   /\  __-.  /\  ___\  ╠╣
+╠╣\ \  _-/ \ \  __ \  \ \___  \  \ \___  \  \ \ \/ ".\ \  \ \ \/\ \  \ \  __<   \ \ \/\ \ \ \___  \ ╠╣
+╠╣ \ \_\    \ \_\ \_\  \/\_____\  \/\_____\  \ \__/".~\_\  \ \_____\  \ \_\ \_\  \ \____-  \/\_____\╠╣
+╠╣  \/_/     \/_/\/_/   \/_____/   \/_____/   \/_/   \/_/   \/_____/   \/_/ /_/   \/____/   \/_____/╠╣
+╠╣                                                                                                  ╠╣
+╠╣ ______     ______     __   __     ______     ______     ______     ______   ______     ______    ╠╣
+╠╣/\  ___\   /\  ___\   /\ "-.\ \   /\  ___\   /\  == \   /\  __ \   /\__  _\ /\  __ \   /\  == \   ╠╣
+╠╣\ \ \__ \  \ \  __\   \ \ \-.  \  \ \  __\   \ \  __<   \ \  __ \  \/_/\ \/ \ \ \/\ \  \ \  __<   ╠╣
+╠╣ \ \_____\  \ \_____\  \ \_\\"\_\  \ \_____\  \ \_\ \_\  \ \_\ \_\    \ \_\  \ \_____\  \ \_\ \_\ ╠╣
+╠╣  \/_____/   \/_____/   \/_/ \/_/   \/_____/   \/_/ /_/   \/_/\/_/     \/_/   \/_____/   \/_/ /_/ ╠╣
+╠╬╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╬╣
+╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝
+
+                    * Welcome To Passwords Generator Program By PyQonsole
+
+===================================================================================================== 
+
+    (!) - Choose Which Methode Of Generating ...
+
+    (1) - Cocktail Password -> ( &@)oWk+9#JnO0T[ )
+    
+    (2) - Ascii Password -> ( lKsS-PSiD-sgSk-Dotj )
+
+    (?) -> ''')
+        if select == '1':
+            PasswordsGenerator().cocktail_password()
+        elif select == '2':
+            PasswordsGenerator().ascii_password()
+
+    def cocktail_password(self) -> str :
+    
+        strs = [string.ascii_letters + string.digits + string.punctuation]
+        sampled = random.sample(strs[0], k=15)
+        input(
+'''=====================================================================================================
+
+=============================== Cocktail Password Generating Methode ================================
+
+=====================================================================================================
+
+=== press enter to generate a password !!! '''.title())
         
+        print(f'\n- Suggested Password Is : ' , end='')
+        for password in sampled:
+            print(*password, end='')
+
+        print('\n\n- Done ...')
+
+    def ascii_password(self):
+        strs = [string.ascii_letters + string.digits]    
+        row1 = random.sample(strs[0], k=4)
+        row2 = random.sample(strs[0], k=4)
+        row3 = random.sample(strs[0], k=4)
+        row4 = random.sample(strs[0], k=4)
+
+        input(
+'''=====================================================================================================
+
+=============================== Ascii Password Generating Methode ================================
+
+=====================================================================================================
+
+=== press enter to generate a password !!! '''.title())
+        
+        print('\n- Generated Password Is : ',
+            *row1,'-',*row2,'-',*row3,'-',*row4, sep='')
     
 if __name__ == '__main__':
-    generate()
-
+    PasswordsGenerator().generate()
 
 
