@@ -1,6 +1,9 @@
 import datetime
 import json
+from termcolor import colored
 
+description = colored('Description', 'light_green')
+saved_tasks = colored('Saved Tasks', 'light_green')
 
 class TaskManager:
     
@@ -9,8 +12,8 @@ class TaskManager:
 
     def new_task(self):
         object = input('\n- Set The Task Object : ')
-        year = int(input('- Year : ')) ; month = int(input('- Month : ')) ; day = int(input('- Day : '))
-        hour = int(input('- Hour : ')) ; minute = int(input('- Minute : ')) ; second = int(input('- Second : '))
+        year = int(input('\n- Year : ')) ; month = int(input('\n- Month : ')) ; day = int(input('\n- Day : '))
+        hour = int(input('\n- Hour : ')) ; minute = int(input('\n- Minute : ')) ; second = int(input('\n- Second : '))
 
         set_time = datetime.datetime(year=year, month=month, day=day,    
                                     hour=hour, minute=minute, second=second)
@@ -25,9 +28,7 @@ class TaskManager:
             loadfile = json.loads(json_file.read())
             print(
 f'''
-==================================================================================
-================================== Saved Tasks ===================================
-==================================================================================
+==== {saved_tasks} :
 
 - Task Object : {loadfile['object']}
 
@@ -37,14 +38,15 @@ f'''
     
     def Menu(self):
         select = input(
-'''
-==================================================================================
+f'''==================================================================================
+
 =============================== Task Manager Home ================================
+
 ==================================================================================
 
-                      Welcome To Your TaskManager Script
+==== {description} : Select A Command From The Lines Bellow By Typing Its Index 
 
-==== - Select A Command From The Lines Bellow By Typing Its Index :
+     Then Press Enter :
 
 ==== 1 - Add New Task 
 
