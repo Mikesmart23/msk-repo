@@ -1,2 +1,0 @@
-if files.startswith('Samara'):
-                    
