@@ -22,7 +22,18 @@ class TaskManager:
             
     def check_tasks(self):
         with open('MyTasks.json', 'r') as json_file:
-            print('\n', json_file.read())
+            loadfile = json.loads(json_file.read())
+            print(
+f'''
+==================================================================================
+================================== Saved Tasks ===================================
+==================================================================================
+
+- Task Object : {loadfile['object']}
+
+- Date & Time : {loadfile['date & time']}
+
+''')
     
     def Menu(self):
         select = input(
