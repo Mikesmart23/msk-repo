@@ -8,7 +8,7 @@ class TaskManager:
         self.dt = dt
 
     def new_task(self):
-        object = input('Set The Task Object : ')
+        object = input('\n- Set The Task Object : ')
         year = int(input('- Year : ')) ; month = int(input('- Month : ')) ; day = int(input('- Day : '))
         hour = int(input('- Hour : ')) ; minute = int(input('- Minute : ')) ; second = int(input('- Second : '))
 
@@ -27,15 +27,19 @@ class TaskManager:
     def Menu(self):
         select = input(
 '''
-__________________ Task Manager Home _________________
+==================================================================================
+=============================== Task Manager Home ================================
+==================================================================================
 
-- Select an Option From List Bellow :
+                      Welcome To Your TaskManager Script
 
-1 - Add New Task 
+==== - Select A Command From The Lines Bellow By Typing Its Index :
 
-2 - Check Tasks
+==== 1 - Add New Task 
 
-? -> ''')
+==== 2 - Check Tasks
+
+==== ? -> ''')
         if select == '1':
             TaskManager().new_task()
         elif select == '2':
