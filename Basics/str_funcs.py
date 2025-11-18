@@ -1,4 +1,4 @@
-# string functions full tutorial ...
+# string functions full tutorial ..
 
 myName = "i'm PyQonsole !!"
 
