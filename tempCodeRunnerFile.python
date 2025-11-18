@@ -1,0 +1,154 @@
+import flet
+from flet import Page, Text, IconButton, Row, Column, ProgressBar, Stack, Container, alignment, padding, colors
+from flet.icons import PLAY_ARROW, PAUSE, REPLAY
+import time
+import threading
+
+class CircularProgressBar(Stack):
+    def __init__(self, radius: float, stroke_width: float):
+        super().__init__()
+        self.radius = radius
+        self.stroke_width = stroke_width
+        self.value = 0.0  # قيمة التقدم (بين 0 و 1)
+        self.width = self.height = radius * 2
+        self.controls = self.build()
+
+    def build(self):
+        return [
+            Container(
+                width=self.radius * 2,
+                height=self.radius * 2,
+                content=ProgressBar(
+                    width=self.radius * 2 - self.stroke_width,
+                    height=self.radius * 2 - self.stroke_width,
+                    value=self.value,
+                    color=flet.Colors.GREEN,
+                    bgcolor=flet.Colors.GREY_200,
+                ),
+                alignment=alignment.center,
+            ),
+            Container(
+                width=self.radius * 2,
+                height=self.radius * 2,
+                alignment=alignment.center,
+                content=Text(
+                    value=f"{int(self.value * 100)}%",
+                    size=self.radius / 4,
+                ),
+            ),
+        ]
+
+    def update_value(self, value: float):
+        self.value = value
+        self.controls = self.build()
+        self.update()
+
+def main(page: Page):
+    page.title = "Pomodoro Timer"
+    page.vertical_alignment = "center"
+    page.horizontal_alignment = "center"
+    page.window_width = 480  # Width as requested
+    page.window_height = 640 # A reasonable height
+    page.padding = 50
+
+    # Pomodoro settings (in seconds)
+    work_duration = 25 * 60
+    break_duration = 5 * 60
+    long_break_duration = 15 * 60
+    current_session = "Work"
+    sessions_count = 0
+
+    # UI elements
+    timer_text = Text(value="25:00", size=40)
+    progress_bar = CircularProgressBar(radius=100, stroke_width=10)
+    play_pause_button = IconButton(icon=PLAY_ARROW, icon_size=30)
+
+    timer = None
+    running = False
+    total_seconds = work_duration
+
+    def update_timer_text():
+        minutes = total_seconds // 60
+        seconds = total_seconds % 60
+        timer_text.value = f"{minutes:02}:{seconds:02}"
+        page.update()
+
+    def tick():
+        nonlocal total_seconds, running, current_session, sessions_count
+
+        while running and total_seconds > 0:
+            time.sleep(1)
+            total_seconds -= 1
+            update_timer_text()
+            progress_bar.update_value(1 - (total_seconds / get_session_duration()))
+
+        if running:  # Timer finished
+            running = False
+            sessions_count += 1
+            if current_session == "Work":
+                if sessions_count % 4 == 0:
+                    current_session = "Long Break"
+                    total_seconds = long_break_duration
+                else:
+                    current_session = "Break"
+                    total_seconds = break_duration
+            else:
+                current_session = "Work"
+                total_seconds = work_duration
+
+            update_timer_text()
+            play_pause_button.icon = PLAY_ARROW
+            progress_bar.update_value(0)
+            page.update()
+
+    def get_session_duration():
+        if current_session == "Work":
+            return work_duration
+        elif current_session == "Break":
+            return break_duration
+        else:
+            return long_break_duration
+
+    def toggle_timer(e):
+        nonlocal running, timer, total_seconds
+        if not running:
+            running = True
+            play_pause_button.icon = PAUSE
+            timer = threading.Thread(target=tick, daemon=True)
+            timer.start()
+        else:
+            running = False
+            play_pause_button.icon = PLAY_ARROW
+        page.update()
+
+    def reset_timer(e):
+        nonlocal running, total_seconds, sessions_count, current_session
+        running = False
+        play_pause_button.icon = PLAY_ARROW
+        total_seconds = work_duration
+        current_session = "Work"
+        sessions_count = 0
+        update_timer_text()
+        progress_bar.update_value(0)
+        page.update()
+
+    play_pause_button.on_click = toggle_timer
+    page.add(
+        Column(
+            [
+                progress_bar,
+                timer_text,
+                Row(
+                    [
+                        play_pause_button,
+                        IconButton(icon=REPLAY, icon_size=30, on_click=reset_timer),
+                    ],
+                    alignment="center",
+                ),
+            ],
+            horizontal_alignment="center",
+        )
+    )
+
+if __name__ == "__main__":
+    flet.app(target=main)
