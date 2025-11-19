@@ -38,6 +38,19 @@ print(myName.center(20, '-'))
 # تنسيق السلسلة باستخدام العناصر النائبة 
 print("PyQonsole is {}".format('Awesome !!'))
 
+'''Joins elements of an iterable into a single string
+   using the string as a separator'''
+# يربط عناصر قابلة للتكرار في سلسلة واحدة باستخدام السلسلة كفاصل 
+print('*'.join(['PyQonsole', 'is', 'A', 'Programmer']))
+
+# Expands tabs in the string to spaces
+# توسيع علامات التبويب في السلسلة إلى مسافات 
+print("Py\tQonsole".expandtabs(4))
+
+# Pads the string on the left with zeros to fill the specified width
+# يملأ السلسلة الموجودة على اليسار بالأصفار لملء العرض المحدد 
+print('10'.zfill(10))
+
 ##################################################################
 ####################### 2. Whitespace Methods ######################
 
@@ -90,10 +103,7 @@ print('py-qonsole'.rsplit('-', 1))
 # تقسيم السلسلة عند فواصل الأسطر، وإرجاع قائمة من الأسطر 
 print('hello\nPython'.splitlines())
 
-'''Joins elements of an iterable into a single string
-   using the string as a separator'''
-# يربط عناصر قابلة للتكرار في سلسلة واحدة باستخدام السلسلة كفاصل 
-print('*'.join(['PyQonsole', 'is', 'A', 'Programmer']))
+
 
 ##################################################################
 ####################### 5. Testing Methods ######################
@@ -151,13 +161,6 @@ print('sython'.translate(newName))
 # Replaces occurrences of a substring with another substring
 print(myName.replace('!!', '??'))
 
-# Expands tabs in the string to spaces
-# توسيع علامات التبويب في السلسلة إلى مسافات 
-print("Py\tQonsole".expandtabs(4))
-
-# Pads the string on the left with zeros to fill the specified width
-# يملأ السلسلة الموجودة على اليسار بالأصفار لملء العرض المحدد 
-print('10'.zfill(10))
 ##################################################################
 ###################### 8. Partitioning Methods ######################
 
